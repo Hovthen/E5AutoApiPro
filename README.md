@@ -1,5 +1,8 @@
+# 项目说明
+本项目来自: https://github.com/wangziyingwen/AutoApiP
+
 # AutoApiP
-AutoApi系列：~~AutoApi~~、AutoApiSecret、~~AutoApiSR、AutoApiS~~、AutoApiP
+AutoApi系列：~~AutoApi~~、AutoApiSecret、~~AutoApiSR、AutoApiS~~、[AutoApiP](https://github.com/wangziyingwen/AutoApiP)
 
 ## 置顶 ##
 * **不保证续期**
