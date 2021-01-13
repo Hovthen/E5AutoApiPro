@@ -48,13 +48,10 @@ AutoApi系列：~~AutoApi~~、[AutoApiSecret](https://github.com/wangziyingwen/A
     
     **赋予api权限的时候，选择以下几个（11项）**
   
-                Calendars.ReadWrite、Contacts.ReadWrite、Directory.ReadWrite.All、
-                
-                Files.ReadWrite.All、MailboxSettings.ReadWrite、Mail.ReadWrite、
-                
-                Notes.ReadWrite.All、People.Read.All、Sites.ReadWrite.All、
-                
-                Tasks.ReadWrite、User.ReadWrite.All
+          Calendars.ReadWrite、Contacts.ReadWrite、Directory.ReadWrite.All、
+          Files.ReadWrite.All、MailboxSettings.ReadWrite、Mail.ReadWrite、
+          Notes.ReadWrite.All、People.Read.All、Sites.ReadWrite.All、
+          Tasks.ReadWrite、User.ReadWrite.All
     
     ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_05.png)
     
@@ -70,7 +67,7 @@ AutoApi系列：~~AutoApi~~、[AutoApiSecret](https://github.com/wangziyingwen/A
 
     * 1）解压下载好的ZIP压缩包，打开rclone.exe所在文件夹，鼠标移至空白处按住**shift**键，同时单击**鼠标右键**，弹出菜单中鼠标左键单击**在此处打开Powershell**，输入下面**修改后**的内容（或在记事本/便签中修改后全选复制，使用快捷键粘贴）：
            
-                ./rclone authorize "onedrive" "应用程序(客户端)ID" "应用程序密码"
+          ./rclone authorize "onedrive" "应用程序(客户端)ID" "应用程序密码"
                
     * 2）按下**回车键**执行命令，会自动打开浏览器，**登入E5账号**，点击接受，成功后会显示“success!”，关闭浏览器回到Powershell窗口，会看到多了一串东西。
     * 3）在那一串东西里找到 **"refresh_token"："** ，从双引号开始选中到 **","expiry":2021** 为止（就是refresh_token后面双引号里那一串，**不要双引号**），如下图，**右键复制**保存（**获得了微软密钥**）
@@ -162,7 +159,7 @@ __________________________________________________________________________
 
    如果想输入第 2/N 账号或应用，请按上述先获取到第 2/N 个应用的 **应用程序ID**、**应用程序密码**、**微软密钥refresh_token** 三个值，再按以下步骤：
  
-    * 1）**增加 secret** 。依次点击**仓库页面上横栏**（靠右边）的 Setting -> 左竖栏 Secrets -> 右上角 New repository secret，根据需要新建secret：
+   * 1）**增加 secret** 。依次点击**仓库页面上横栏**（靠右边）的 Setting -> 左竖栏 Secrets -> 右上角 New repository secret，根据需要新建secret：
  
    APP_NUM
    ```shell
@@ -171,16 +168,16 @@ __________________________________________________________________________
    
    然后添加具体的账号/应用参数：（三个参数为一组，更改后面数字即可）
    
-                	第2个账号：
-                MS_TOKEN_2
-                CLIENT_ID_2
-                CLIENT_SECRET_2
-                	第10个账号：
-                MS_TOKEN_10
-                CLIENT_ID_10
-                CLIENT_SECRET_10
+          	第2个账号：
+          MS_TOKEN_2
+          CLIENT_ID_2
+          CLIENT_SECRET_2
+          	第10个账号：
+          MS_TOKEN_10
+          CLIENT_ID_10
+          CLIENT_SECRET_10
    
-    * 2）修改.github/workflows/里的两个yml文件（**超过5个（>5）账号需要更改，5个及以下（≤5）直接忽略这一步**）
+   * 2）修改.github/workflows/里的两个yml文件（**超过5个（>5）账号需要更改，5个及以下（≤5）直接忽略这一步**）
     
    yml文件根据注释看着改就行，已经写入5个账号模板了，跟着复制粘贴很简单的（没有找到比较好的自动方案）
   
@@ -190,32 +187,32 @@ __________________________________________________________________________
      
    · 轮数：
               
-             就是一次运行要跑多少轮api，也就是启动一次会重复跑几圈
+          就是一次运行要跑多少轮api，也就是启动一次会重复跑几圈
     
    · 是否启动随机时间（默认关闭）：
             
-            这个是每一轮结束，要不要等一个随机时间再开始调用下一轮。后面两个参数就是生成随机时间的，例如设置600，1200，就会延时600-1200s之间。
+          这个是每一轮结束，要不要等一个随机时间再开始调用下一轮。后面两个参数就是生成随机时间的，例如设置600，1200，就会延时600-1200s之间。
     
    · 是否开启随机api顺序（默认开启）：
             
-            不开启就是初版10个api，固定顺序。开启就是28个api抽12个随机排序。
+          不开启就是初版10个api，固定顺序。开启就是28个api抽12个随机排序。
     
    · 是否开启各api延时（默认关闭）：
             
-            这个是每个api之间要不要开启延时。后面两参数参考“随机时间”
+          这个是每个api之间要不要开启延时。后面两参数参考“随机时间”
     
    · 是否开启各账号延时（默认关闭）：
    
-            这个是每个账号/应用之间要不要开启延时。后面两参数参考“随机时间”
+          这个是每个账号/应用之间要不要开启延时。后面两参数参考“随机时间”
     
    （延时的设置是会延长运行时间的，全关闭大概每次运行1min，开启就会适当延长）
  
     
-—————————————完—————————————
+—————完—————
 
-                             wangziyingwen
+          wangziyingwen
         
-—————————————完—————————————
+—————完—————
 
 # 注意
 ## 声明
@@ -235,9 +232,9 @@ __________________________________________________________________________
       * 你可能需要一个比较短的域名用作后缀，可以使用免费的tk、ml...等域名
       * 请勿使用任何上网工具，否则极易申请失败。申请前建议安装浏览器扩展[Gooreplacer](https://microsoftedge.microsoft.com/addons/detail/gooreplacer/cidbonnpjopamnhfjdgfcmjmlmehjnej)。
       
-             www.google.com/recaptcha
-             重定向到：
-             recaptcha.net/recaptcha
+            www.google.com/recaptcha
+            重定向到：
+            recaptcha.net/recaptcha
       
    * 5） [DNSPod](https://console.dnspod.cn/)
       * 我还是更喜欢用腾讯的DNSPod来管理域名DNS，当然包括免费的tk、ml...
