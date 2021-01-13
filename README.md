@@ -2,7 +2,7 @@
 本项目来自: https://github.com/wangziyingwen/AutoApiP
 
 # AutoApiP
-AutoApi系列：~~AutoApi~~、[AutoApiSecret](https://github.com/wangziyingwen/AutoApiSecret)、~~AutoApiSR、AutoApiS~~、[AutoApiP](https://github.com/wangziyingwen/AutoApiP)
+AutoApi系列：~~AutoApi~~、[AutoApiSecret](https://github.com/wangziyingwen/AutoApiSecret)、~~AutoApiSR~~、~~AutoApiS~~、[AutoApiP](https://github.com/wangziyingwen/AutoApiP)
 
 ## 置顶 ##
 * **不保证续期**
@@ -12,7 +12,7 @@ AutoApi系列：~~AutoApi~~、[AutoApiSecret](https://github.com/wangziyingwen/A
 * AutoApiSecret：https://github.com/wangziyingwen/AutoApiSecret
 * **常见错误及解决办法/更新日志**：https://github.com/wangziyingwen/Autoapi-test
 * 视频教程：
-   * B站：https://www.bilibili.com/video/BV185411n7Mq/
+   * B站：[BV185411n7Mq](https://www.bilibili.com/video/BV185411n7Mq/)
 
 ## 步骤 ##
 * 准备工具：
@@ -23,7 +23,7 @@ AutoApi系列：~~AutoApi~~、[AutoApiSecret](https://github.com/wangziyingwen/A
 * 步骤大纲：
    * 微软方面的准备工作 （获取应用id、密码、密钥）
    * GIHTHUB方面的准备工作  （获取Github密钥、设置secret）
-   * 调用api
+   * 调用API
    
 #### 微软方面的准备工作 ####
 
@@ -31,22 +31,22 @@ AutoApi系列：~~AutoApi~~、[AutoApiSecret](https://github.com/wangziyingwen/A
 
     * 1）点击打开[仪表板](https://aad.portal.azure.com/)，左边点击**所有服务**，找到**应用注册**，点击+**新注册**
     
-     ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApiP/creatapp.png)
+     ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApiP/creatapp.png)
     
     * 2）填入名字，受支持账户类型前三任选，重定向填入 http://localhost:53682/ ，点击**注册**
     
-    ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApiP/creatapp2.png)
+    ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApiP/creatapp2.png)
     
     * 3）复制应用程序（客户端）ID到记事本备用(**获得了应用程序ID**！)，点击左边管理的**证书和密码**，点击+**新客户端密码**，点击添加，复制新客户端密码的**值**保存（**获得了应用程序密码**！）
     
-    ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApiP/creatapp3.png)
+    ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApiP/creatapp3.png)
     
-    ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApiP/creatapp4.png)
+    ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApiP/creatapp4.png)
     
     * 4）点击左边管理的**API权限**，点击+**添加权限**，点击常用Microsoft API里的**Microsoft Graph**(就是那个蓝色水晶)，
     点击**委托的权限**，然后在下面的条例选中下列需要的权限，最后点击底部**添加权限**
     
-    **赋予api权限的时候，选择以下几个**
+    **赋予api权限的时候，选择以下几个（11项）**
   
                 Calendars.ReadWrite、Contacts.ReadWrite、Directory.ReadWrite.All、
                 
@@ -56,61 +56,62 @@ AutoApi系列：~~AutoApi~~、[AutoApiSecret](https://github.com/wangziyingwen/A
                 
                 Tasks.ReadWrite、User.ReadWrite.All
     
-    ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApiP/creatapp5.png)
+    ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApiP/creatapp5.png)
     
-    ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApiP/creatapp6.png)
+    ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApiP/creatapp6.png)
      
-    ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApiP/creatapp8.png)
+    ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApiP/creatapp8.png)
     
     * 5）添加完自动跳回到权限首页，点击**代表授予管理员同意**
     
-    ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApiP/creatapp7.png)
+    ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApiP/creatapp7.png)
     
 * **第二步，获取refresh_token(微软密钥)**
 
-    * 1）rclone.exe所在文件夹，shift+右键，在此处打开powershell，输入下面**修改后**的内容，回车后跳出浏览器，登入e5账号，点击接受，回到powershell窗口，看到一串东西。
+    * 1）解压下载好的ZIP压缩包，打开rclone.exe所在文件夹，鼠标移至空白处按住**shift**键，同时单击**鼠标右键**，弹出菜单中鼠标左键单击**在此处打开Powershell**，输入下面**修改后**的内容（或在记事本/便签中修改后全选复制，使用快捷键粘贴）：
            
                 ./rclone authorize "onedrive" "应用程序(客户端)ID" "应用程序密码"
                
-    * 2）在那一串东西里找到 "refresh_token"：" ，从双引号开始选中到 ","expiry":2021 为止（就是refresh_token后面双引号里那一串，不要双引号），如下图，右键复制保存（**获得了微软密钥**）
+    * 2）按下**回车键**执行命令，会自动打开浏览器，**登入E5账号**，点击接受，成功后会显示“success!”，关闭浏览器回到Powershell窗口，会看到多了一串东西。
+    * 3）在那一串东西里找到 **"refresh_token"："** ，从双引号开始选中到 **","expiry":2021** 为止（就是refresh_token后面双引号里那一串，**不要双引号**），如下图，**右键复制**保存（**获得了微软密钥**）
     
-    ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApi/token地方.png)
+    ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApi/token地方.png)
     
  ____________________________________________________
  
  #### GITHUB方面的准备工作 ####
 
- * **第一步，fork本项目**
+ * **第一步，fork[本项目](https://github.com/wangziyingwen/AutoApiP)**
  
-     登陆/新建github账号，回到本项目页面，点击右上角fork本项目的代码到你自己的账号，然后你账号下会出现一个一模一样的项目，接下来的操作均在你的这个项目下进行。
+     登陆/新建Github账号，回到本项目页面，点击右上角fork[本项目](https://github.com/wangziyingwen/AutoApiP)的代码到你自己的账号，然后你账号下会出现一个一模一样的项目，接下来的操作均在你的那个项目下进行。
      
-     ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApi/fork.png)
+     ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApi/fork.png)
      
- * **第二步，新建github密钥**
+ * **第二步，新建Github密钥**
  
-    * 1）进入你的个人设置页面 (右上角头像 Settings，不是仓库里的 Settings)，选择 Developer settings -> Personal access tokens -> Generate new token
+    * 1）进入你的个人设置页面 (**右上角头像** Settings，不是仓库里的 Settings)，选择 Developer settings -> Personal access tokens -> Generate new token
 
-    ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApi/Settings.png)
+    ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApi/Settings.png)
     
-    ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApi/token.png)
+    ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApi/token.png)
     
-    * 2）设置名字为 **GH_TOKEN** , 然后勾选repo，点击 Generate token ，最后**复制保存**生成的github密钥（**获得了github密钥**，一旦离开页面下次就看不到了！）
+    * 2）设置名字为 **GH_TOKEN** , 然后**勾选repo**，点击 Generate token ，最后**复制保存**生成的Github密钥（**获得了Github密钥**，**只会显示一次**，一旦离开页面下次就看不到了！）
    
-   ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApiP/repo.png)
+   ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApiP/repo.png)
   
  * **第三步，新建secret**
  
-    * 1）依次点击页面上栏右边的 Setting -> 左栏 Secrets -> 右上 New repository secret，新建4个secret： **GH_TOKEN、MS_TOKEN、CLIENT_ID、CLIENT_SECRET**  
+    * 1）依次点击**仓库页面上横栏**（靠右边）的 Setting -> 左竖栏 Secrets -> 右上角 New repository secret，新建4个secret： **GH_TOKEN、MS_TOKEN、CLIENT_ID、CLIENT_SECRET**  
    
-    ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApiP/setting.png)
+    ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApiP/setting.png)
     
-    ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApiP/secret2.png)
+    ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApiP/secret2.png)
     
      **(以下填入内容注意前后不要有空格空行)**
  
      GH_TOKEN
      ```shell
-     github密钥 (第三步获得)，例如获得的密钥是abc...xyz，则在secret页面直接粘贴进去，不用做任何修改，只需保证前后没有空格空行
+     Github密钥 (第三步获得)，例如获得的密钥是abc...xyz，则在secret页面直接粘贴进去，不用做任何修改，只需保证前后没有空格空行
      ```
      MS_TOKEN
      ```shell
@@ -128,14 +129,13 @@ ________________________________________________
 
 #### 调用API ####
    
-   * 1）点击两次右上角的星星（star）启动action,，再点击上面的Action，选择Auto Api Pro 就能看到每次的运行日志，看看运行状况
+   * 1）点击两次右上角的星星（star）启动action,，再点击**仓库页面上横栏**的Action，选择 **Auto Api Pro** 就能看到每次的运行日志，看看运行状况
 
-   （必需点进去Test Api看下，api有没有调用到位，有没有出错。外面的Auto Api打勾只能说明运行是正常的，我们还需要确认api调用成功了，就像图里的一样）
+   （必需点进去Test Api看下，api有没有调用到位，有没有出错。外面的Auto Api打勾只能说明运行了（不代表成功调用），我们还需要确认api是否调用成功，就像图里的一样）
    
-   
-   ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApi/日志.png)
+   ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApi/日志.png)
      
-   * 2）再点两次星星，如果还能成功运行就ok了（这一步是为了保证重新上传到secret的token是正确的）
+   * 2）再点两次星星（star），如果还能成功运行就ok了（这一步是为了保证重新上传到secret的token是正确的）
  
 ### 教程完 ###
 
@@ -150,42 +150,39 @@ __________________________________________________________________________
 
 #### 定时启动修改 ####
    
-   我设定的每6小时自动运行一次（周六日不启动），每次调用3轮（点击右上角星星/star也可以立马调用一次），你们自行斟酌修改（我也不知道保持活跃要调用多少次、多久）：
+   我设定的周一至周六每天指定的几个时间自动运行一次（周日休息），每次调用5轮（点击右上角星星/star也可以立马调用一次），你们自行斟酌修改（我也不知道保持活跃要调用多少次、多久）：
 
-  * 定时自动启动修改地方：在.github/workflow/autoapi.yml(只修改这一个)文件里，自行百度cron定时任务格式，最短每5分钟一次
+  * 定时自动启动修改地方：在.github/workflow/autoapi.yml（只修改这一个）文件里，最短每5分钟一次。
    
-   ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApi/定时.png)
+   可使用[cron定时任务生成器](http://www.toolzl.com/tools/croncreate.html)生成一个，建议在线编辑autoapi.yml文件，注意不要删除引号，替换完成需要删减一些内容，鼠标移至该处会有时间提示，前后适当删减即可得到Github可正常识别使用的Cron定时文件内容，最后保存提交即可！
+   
+   ![image](https://cdn.jsdelivr.net/gh/wangziyingwen/ImageHosting@master/AutoApi/定时.png)
     
 #### 多账号/应用支持 ####
 
-   如果想输入第二账号或者应用，请按上述获取**第二个应用的id、密码、微软密钥：**
+   如果想输入第 2/N 账号或应用，请按上述先获取到第 2/N 个应用的 **应用程序ID**、**应用程序密码**、**微软密钥refresh_token** 三个值，再按以下步骤：
  
-   再按以下步骤：
- 
-   1)增加secret
- 
-   依次点击页面上栏右边的 Setting -> 左栏 Secrets -> 右上 New repository secret，新增加secret：APP_NUM、MS_TOKEN_2、CLIENT_ID_2、CLIENT_SECRET_2
+    * 1）**增加 secret** 。依次点击**仓库页面上横栏**（靠右边）的 Setting -> 左竖栏 Secrets -> 右上角 New repository secret，根据需要新建secret：
  
    APP_NUM
    ```shell
-   账号/应用数量(现在例如是2，3个就是3，日后如果要增加请删掉新建APP_NUM)
-   ```
-   MS_TOKEN_2
-   ```shell
-   第二个账号的微软密钥（第二步refresh_token），（第三个就是MS_TOKEN_3，如此类推）
-   ```
-   CLIENT_ID_2
-   ```shell
-   第二个账号的应用程序ID(第一步)
-   ```
-   CLIENT_SECRET_2
-   ```shell
-   第二个账号的应用程序密码(第一步)
+   账号/应用数量（现在例如是2，3个就是3，日后如果要增加请删掉后再新建APP_NUM）
    ```
    
-   2)修改.github/workflows/里的两个yml文件（**超过5个账号需要更改，5个及以下暂时不用修改文件，忽略这一步**）
+   然后添加具体的账号/应用参数：（三个参数为一组，更改后面数字即可）
+   
+                	第2个账号：
+                MS_TOKEN_2
+                CLIENT_ID_2
+                CLIENT_SECRET_2
+                	第10个账号：
+                MS_TOKEN_10
+                CLIENT_ID_10
+                CLIENT_SECRET_10
+   
+    * 2）修改.github/workflows/里的两个yml文件（**超过5个（>5）账号需要更改，5个及以下（≤5）直接忽略这一步**）
     
-   yml文件我已经注明了，看着改就行，我已经写入5个账号模板了，跟着复制粘贴很简单的（没有找到比较好的自动方案）
+   yml文件根据注释看着改就行，已经写入5个账号模板了，跟着复制粘贴很简单的（没有找到比较好的自动方案）
   
 #### 超级参数设置 ####
  
@@ -220,4 +217,31 @@ __________________________________________________________________________
         
 —————————————完—————————————
 
+# 注意
+## 声明
+   * 本项目来自: https://github.com/wangziyingwen/AutoApiP
+   * 同AutoApi系列：~~AutoApi~~、[AutoApiSecret](https://github.com/wangziyingwen/AutoApiSecret)、~~AutoApiSR~~、~~AutoApiS~~、[AutoApiP](https://github.com/wangziyingwen/AutoApiP)
 
+   * [Releases](https://github.com/Hovthen/E5AutoApiPro/releases)中为大佬两个版本备份，版本号为打包日期！
+
+## 更多推荐
+   * 1） [Outlook.api续订程序](https://e5.qyi.io/)
+      * 同时您也可以使用[续订程序](https://e5.qyi.io/)，使用Github账号登录，填入一些必备参数成功运行后就不用管了。（~~不会真的有人看到这还不知道怎么获取参数吧？不会连Github账号都没有吧？~~）
+   * 2） [OneIndex](https://github.com/TheZihanGu/oneindex-tzg)
+      * 由于原作者删库，可以使用相关项目。我使用的是[oneindex-tzg](https://github.com/TheZihanGu/oneindex-tzg)
+   * 3） [OneManager](https://github.com/qkqpttgf/OneManager-php)
+      * 我使用的是[OneManager-PHP](https://github.com/qkqpttgf/OneManager-php)，配置说明非常详细。
+   * 4） [Freenom](https://www.freenom.com/zh/index.html?lang=zh)
+      * 你可能需要一个比较短的域名用作后缀，可以使用免费的tk、ml...等域名
+      * 请勿使用任何上网工具，否则极易申请失败。申请前建议安装浏览器扩展[Gooreplacer](https://microsoftedge.microsoft.com/addons/detail/gooreplacer/cidbonnpjopamnhfjdgfcmjmlmehjnej)。
+      
+             www.google.com/recaptcha
+             重定向到：
+             recaptcha.net/recaptcha
+      
+   * 5） [DNSPod](https://console.dnspod.cn/)
+      * 我还是更喜欢用腾讯的DNSPod来管理域名DNS，当然包括免费的tk、ml...
+      * Freenom免费域名记录生效会特别慢，不必怀疑，等待1~5分钟即可。
+
+如果有空，不妨多来[我的辣鸡网站](https://www.hovthen.com)转转。
+Email：me@hovthen.com
