@@ -37,7 +37,7 @@ AutoApi系列：~~AutoApi~~、AutoApiSecret、~~AutoApiSR~~、~~AutoApiS~~、Aut
     
     * 2）填入名字，受支持账户类型前三任选，重定向填入 http://localhost:53682/ ，点击**注册**
     
-    ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_02.png)
+    ![image](./image/E5AutoApiPro_02.png)
     
     * 3）复制应用程序（客户端）ID到记事本备用(**获得了应用程序ID**！)，点击左边管理的**证书和密码**，点击+**新客户端密码**，点击添加，复制新客户端密码的**值**保存（**获得了应用程序密码**！）
     
