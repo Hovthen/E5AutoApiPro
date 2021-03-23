@@ -2,7 +2,9 @@
 本项目来自: https://github.com/wangziyingwen/AutoApiP
 
 # AutoApiP
-AutoApi系列：~~AutoApi~~、[AutoApiSecret](https://github.com/wangziyingwen/AutoApiSecret)、~~AutoApiSR~~、~~AutoApiS~~、[AutoApiP](https://github.com/wangziyingwen/AutoApiP)
+AutoApi系列：~~AutoApi~~、AutoApiSecret、~~AutoApiSR~~、~~AutoApiS~~、AutoApiP
+
+原作者 [@wangziyingwen](https://github.com/wangziyingwen) 已删库跑路！部分图片/链接可能无法正常查看或访问！！
 
 ## 置顶 ##
 * **不保证续期**
@@ -31,7 +33,7 @@ AutoApi系列：~~AutoApi~~、[AutoApiSecret](https://github.com/wangziyingwen/A
 
     * 1）点击打开[仪表板](https://aad.portal.azure.com/)，左边点击**所有服务**，找到**应用注册**，点击+**新注册**
     
-    ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_01.png)
+    ![image](./image/E5AutoApiPro_01.png)
     
     * 2）填入名字，受支持账户类型前三任选，重定向填入 http://localhost:53682/ ，点击**注册**
     
@@ -39,9 +41,9 @@ AutoApi系列：~~AutoApi~~、[AutoApiSecret](https://github.com/wangziyingwen/A
     
     * 3）复制应用程序（客户端）ID到记事本备用(**获得了应用程序ID**！)，点击左边管理的**证书和密码**，点击+**新客户端密码**，点击添加，复制新客户端密码的**值**保存（**获得了应用程序密码**！）
     
-    ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_03.png)
+    ![image](./image/E5AutoApiPro_03.png)
     
-    ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_04.png)
+    ![image](./image/E5AutoApiPro_04.png)
     
     * 4）点击左边管理的**API权限**，点击+**添加权限**，点击常用Microsoft API里的**Microsoft Graph**(就是那个蓝色水晶)，
     点击**委托的权限**，然后在下面的条例选中下列需要的权限，最后点击底部**添加权限**
@@ -53,15 +55,15 @@ AutoApi系列：~~AutoApi~~、[AutoApiSecret](https://github.com/wangziyingwen/A
           Notes.ReadWrite.All、People.Read.All、Sites.ReadWrite.All、
           Tasks.ReadWrite、User.ReadWrite.All
     
-    ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_05.png)
+    ![image](./image/E5AutoApiPro_05.png)
     
-    ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_06.png)
+    ![image](./image/E5AutoApiPro_06.png)
      
-    ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_07.png)
+    ![image](./image/E5AutoApiPro_07.png)
     
     * 5）添加完自动跳回到权限首页，点击**代表授予管理员同意**
     
-    ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_08.png)
+    ![image](./image/E5AutoApiPro_08.png)
     
 * **第二步，获取refresh_token(微软密钥)**
 
@@ -72,7 +74,7 @@ AutoApi系列：~~AutoApi~~、[AutoApiSecret](https://github.com/wangziyingwen/A
     * 2）按下**回车键**执行命令，会自动打开浏览器，**登入E5账号**，点击接受，成功后会显示“success!”，关闭浏览器回到Powershell窗口，会看到多了一串东西。
     * 3）在那一串东西里找到 **"refresh_token"："** ，从双引号开始选中到 **","expiry":2021** 为止（就是refresh_token后面双引号里那一串，**不要双引号**），如下图，**右键复制**保存（**获得了微软密钥**）
     
-    ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_09.png)
+    ![image](./image/E5AutoApiPro_09.png)
     
  ____________________________________________________
  
@@ -82,27 +84,27 @@ AutoApi系列：~~AutoApi~~、[AutoApiSecret](https://github.com/wangziyingwen/A
  
      登陆/新建Github账号，回到本项目页面，点击右上角fork[本项目](https://github.com/wangziyingwen/AutoApiP)的代码到你自己的账号，然后你账号下会出现一个一模一样的项目，接下来的操作均在你的那个项目下进行。
      
-     ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_10.png)
+    ![image](./image/E5AutoApiPro_10.png)
      
  * **第二步，新建Github密钥**
  
     * 1）进入你的个人设置页面 (**右上角头像** Settings，不是仓库里的 Settings)，选择 Developer settings -> Personal access tokens -> Generate new token
 
-     ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_11.png)
+     ![image](./image/E5AutoApiPro_11.png)
     
-     ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_12.png)
+     ![image](./image/E5AutoApiPro_12.png)
     
     * 2）设置名字为 **GH_TOKEN** , 然后**勾选repo**，点击 Generate token ，最后**复制保存**生成的Github密钥（**获得了Github密钥**，**只会显示一次**，一旦离开页面下次就看不到了！）
    
-     ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_13.png)
+    ![image](./image/E5AutoApiPro_13.png)
   
  * **第三步，新建secret**
  
     * 1）依次点击**仓库页面上横栏**（靠右边）的 Setting -> 左竖栏 Secrets -> 右上角 New repository secret，新建4个secret： **GH_TOKEN、MS_TOKEN、CLIENT_ID、CLIENT_SECRET**  
    
-     ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_14.png)
+    ![image](./image/E5AutoApiPro_14.png)
     
-     ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_15.png)
+    ![image](./image/E5AutoApiPro_15.png)
     
      **(以下填入内容注意前后不要有空格空行)**
  
@@ -130,7 +132,7 @@ ________________________________________________
 
    （必需点进去Test Api看下，api有没有调用到位，有没有出错。外面的Auto Api打勾只能说明运行了（不代表成功调用），我们还需要确认api是否调用成功，就像图里的一样）
    
-     ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_16.png)
+    ![image](./image/E5AutoApiPro_16.png)
      
    * 2）再点两次星星（star），如果还能成功运行就ok了（这一步是为了保证重新上传到secret的token是正确的）
  
@@ -153,7 +155,7 @@ __________________________________________________________________________
    
    可使用[cron定时任务生成器](http://www.toolzl.com/tools/croncreate.html)生成一个，建议在线编辑autoapi.yml文件，注意不要删除引号，替换完成需要删减一些内容，鼠标移至该处会有时间提示，前后适当删减即可得到Github可正常识别使用的Cron定时文件内容，最后保存提交即可！
    
-     ![image](https://tu.tusu.ml/image/github/E5AutoApiPro_17.png)
+    ![image](./image/E5AutoApiPro_17.png)
     
 #### 多账号/应用支持 ####
 
