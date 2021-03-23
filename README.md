@@ -225,7 +225,7 @@ __________________________________________________________________________
 
 ## 更多推荐
    * 1） [Outlook.api续订程序](https://e5.qyi.io/)
-      * 同时您也可以使用[续订程序](https://e5.qyi.io/)，使用Github账号登录，填入一些必备参数成功运行后就不用管了。（~~不会真的有人看到这还不知道怎么获取参数吧？不会连Github账号都没有吧？~~）
+      * 同时您也可以使用[续订程序](https://e5.qyi.io/)，使用Github账号登录，填入一些必备参数成功运行后就不用管了。（~~不会真的有人看到这还不知道怎么获取参数吧？不会连Github账号都没有吧？~~）,[教程](https://www.bilibili.com/read/cv9966050/.io/)，[后端](https://github.com/luoye663/e5)
    * 2） [OneIndex](https://github.com/TheZihanGu/oneindex-tzg)
       * 由于原作者删库，可以使用相关项目。我使用的是[oneindex-tzg](https://github.com/TheZihanGu/oneindex-tzg)
    * 3） [OneManager](https://github.com/qkqpttgf/OneManager-php)
