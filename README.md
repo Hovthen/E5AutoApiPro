@@ -132,7 +132,7 @@ ________________________________________________
 
    （必需点进去Test Api看下，api有没有调用到位，有没有出错。外面的Auto Api打勾只能说明运行了（不代表成功调用），我们还需要确认api是否调用成功，就像图里的一样）
    
-    ![image](./image/E5AutoApiPro_16.png)
+   ![image](./image/E5AutoApiPro_16.png)
      
    * 2）再点两次星星（star），如果还能成功运行就ok了（这一步是为了保证重新上传到secret的token是正确的）
  
@@ -155,7 +155,7 @@ __________________________________________________________________________
    
    可使用[cron定时任务生成器](http://www.toolzl.com/tools/croncreate.html)生成一个，建议在线编辑autoapi.yml文件，注意不要删除引号，替换完成需要删减一些内容，鼠标移至该处会有时间提示，前后适当删减即可得到Github可正常识别使用的Cron定时文件内容，最后保存提交即可！
    
-    ![image](./image/E5AutoApiPro_17.png)
+   ![image](./image/E5AutoApiPro_17.png)
     
 #### 多账号/应用支持 ####
 
